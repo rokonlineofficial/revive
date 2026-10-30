@@ -134,6 +134,91 @@ export default function App() {
           </div>
         </section>
 
+        <section className="appointment" aria-labelledby="appointment-title">
+          <div className="appointment-inner">
+            <h2 id="appointment-title">Book Your Appointment</h2>
+            <p>Claim your appointment today and set off on the path to healthier, more radiant skin. After booking, Revive Skin Studio will verify your visit and ensure you receive specialized, attentive care that's tailored to your skin's distinct condition.</p>
+            <div className="appointment-grid">
+              <article className="appointment-card">
+                <div className="appointment-icon" aria-hidden="true">☎</div>
+                <h3>Contact Us</h3>
+                <a href="tel:+6462728605">Call us: (646) 272-8605</a>
+                <a href="mailto:info@reviveskinstudio.nyc">Email: info@reviveskinstudio.nyc</a>
+                <div className="social-links" aria-label="Social media">
+                  <a href="#gallery" aria-label="Facebook">f</a>
+                  <a href="#gallery" aria-label="Instagram">◎</a>
+                  <a href="#gallery" aria-label="TikTok">♪</a>
+                  <a href="#gallery" aria-label="Pinterest">p</a>
+                  <a href="#gallery" aria-label="X">X</a>
+                </div>
+              </article>
+              <article className="appointment-card">
+                <div className="appointment-icon" aria-hidden="true">▣</div>
+                <h3>Opening Hours</h3>
+                <ul>
+                  <li>Sunday closed</li>
+                  <li>Monday 11am-7pm</li>
+                  <li>Tuesday closed</li>
+                  <li>Wed-Fri 11am-7pm</li>
+                  <li>Saturday 11:30- 3pm</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="care-section">
+          <div className="care-heading">
+            <h2><span>Exceptional Care.</span><br />Advanced Skincare Technology.</h2>
+            <p>Ready to experience advanced, <strong>results-driven</strong> skincare in NYC, backed by 15+ years of medical aesthetics expertise, modern technology, and personalized treatment plans, all delivered in a welcoming, professional setting for naturally radiant, confident skin?</p>
+          </div>
+
+          <div className="care-grid">
+            <article className="care-column">
+              <h3>Our Mission</h3>
+              <div className="care-rule" />
+              <p>Science-led corrective peels, microneedling, skin tightening, and pigmentation correction in NYC. Age-defying medical aesthetics at Revive Skin Studio, precision results, never one-size-fits-all.</p>
+              <ul>
+                <li>Personalized Skin Transformation</li>
+                <li>Improved Confidence &amp; Skin Wellness</li>
+                <li>Advanced Aesthetic Technology</li>
+                <li>Safe, Results-Focused Care</li>
+              </ul>
+            </article>
+
+            <div className="care-portrait" role="img" aria-label="Medical aesthetic facial treatment">
+              <div className="care-message">We can talk about your life and give you the best version of your skin.</div>
+              <span>Let us care</span>
+            </div>
+
+            <article className="care-column care-column-right">
+              <p>For Julissa, luxury exists to elevate results, not replace them. Each treatment is personally developed and performed using clinical expertise, modern tools, and a deep understanding of how skin functions, delivering visible, long-term transformation.</p>
+              <p>Her practice combines medical-grade techniques with a calm, healing environment, so every client enjoys focused, personalized care. Acne recovery, skin texture, and luminous restoration are her trademarks.</p>
+              <ul>
+                <li>Client Care &amp; Long-Term Skin Health</li>
+                <li>Clinical Innovation &amp; Professional Standards</li>
+                <li>Ongoing Education &amp; Advanced Training</li>
+                <li>Recognized for Personalized Expertise</li>
+              </ul>
+              <h3>Our Vision</h3>
+            </article>
+          </div>
+        </section>
+
+        <section className="services-showcase">
+          <div className="services-showcase-copy">
+            <p className="eyebrow">Our Best Services</p>
+            <h2>We Turn Your Skin<br />Goals Into Reality</h2>
+            <p>At Revive Skin Studio, we deliver advanced medical-grade aesthetic treatments designed to restore confidence, enhance natural beauty, and improve long-term skin health. Our expert team performs a full spectrum of corrective, rejuvenating, and laser-based treatments using FDA-cleared technologies and clinically proven protocols.</p>
+          </div>
+          <div className="services-showcase-collage" role="img" aria-label="Advanced skin treatment services">
+            <div className="showcase-image showcase-top" />
+            <div className="showcase-image showcase-bottom-left" />
+            <div className="showcase-image showcase-bottom-right" />
+            <span className="showcase-script">Our service</span>
+          </div>
+        </section>
+
         <section className="intro" id="about">
           <div className="section-label"><span>01</span><p>About our studio</p></div>
           <div className="intro-copy">
