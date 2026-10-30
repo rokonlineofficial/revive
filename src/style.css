@@ -228,7 +228,22 @@ em { font-family: 'Italiana', serif; font-weight: 400; }
 .gallery-heading .eyebrow { margin-bottom: 16px; }
 .gallery-heading h2 { margin: 0; font-family: 'Italiana', serif; font-size: 48px; font-weight: 400; }
 .gallery-grid { height: 300px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.gallery-grid > div { background-position: center; background-size: cover; }
+.gallery-grid > div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background-position: center;
+  background-size: cover;
+  filter: saturate(.72) sepia(.08) contrast(.96);
+  isolation: isolate;
+}
+.gallery-grid > div::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(232, 224, 210, .04), rgba(74, 61, 50, .14));
+  pointer-events: none;
+}
 
 .newsletter { min-height: 300px; padding: 70px 6%; background: var(--ink); color: white; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; }
 .newsletter h2 { margin: 0; font-family: 'Italiana', serif; font-size: clamp(42px, 4vw, 62px); line-height: 1.05; font-weight: 400; }
