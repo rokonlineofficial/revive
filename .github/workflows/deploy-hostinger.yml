@@ -1,7 +1,8 @@
 name: Build for Hostinger
 
-# Builds the site and publishes the ready-to-serve files (dist/) to the
-# `hostinger-build` branch. Hostinger's Git deployment pulls from that branch.
+# Hostinger's Git deploy copies the repo without building it.
+# This rebuilds the site into /site and commits it if it is out of date,
+# so the live site always matches the latest code.
 on:
   push:
     branches:
@@ -23,13 +24,16 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      - run: npm run build:hostinger
 
-      - name: Publish built site to hostinger-build branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: hostinger-build
-          publish_dir: ./dist
-          force_orphan: true
-          commit_message: "Build from"
+      - name: Commit updated build
+        run: |
+          git add -A site
+          if git diff --cached --quiet; then
+            echo "Build is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Hostinger build [skip ci]"
+          git push

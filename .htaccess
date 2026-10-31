@@ -1,0 +1,18 @@
+# Hostinger deploys this repo as-is (no build step).
+# The built website lives in /site, so serve everything from there.
+
+AddType application/javascript .js .mjs
+AddType text/css .css
+AddType image/svg+xml .svg
+
+RewriteEngine On
+RewriteBase /
+
+# Real files inside /site (JS, CSS, images, favicon...)
+RewriteCond %{REQUEST_URI} !^/site/
+RewriteCond %{DOCUMENT_ROOT}/site%{REQUEST_URI} -f
+RewriteRule ^(.*)$ site/$1 [L]
+
+# Everything else (/, /about-us, /contact...) loads the app
+RewriteCond %{REQUEST_URI} !^/site/
+RewriteRule ^ site/index.html [L]
