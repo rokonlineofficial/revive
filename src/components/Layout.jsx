@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { img, asset, Icon, BookButton, SocialRow, MapEmbed } from './ui'
 import { contact } from './sections'
@@ -27,12 +27,14 @@ function Header() {
   const [subOpen, setSubOpen] = useState(false)
   // After navigating, keep the desktop submenu closed until the mouse leaves the menu item
   const [subLocked, setSubLocked] = useState(false)
+  const subRef = useRef(null)
   const { pathname } = useLocation()
 
   useEffect(() => {
     setOpen(false)
     setSubOpen(false)
-    setSubLocked(true)
+    // Only matters if the mouse is still over the menu item when the page changes
+    if (subRef.current?.matches(':hover')) setSubLocked(true)
     document.activeElement?.blur()
   }, [pathname])
 
@@ -51,6 +53,7 @@ function Header() {
             <div
               className={`has-sub ${subOpen ? 'sub-open' : ''} ${subLocked ? 'sub-locked' : ''}`}
               key={item.label}
+              ref={subRef}
               onMouseLeave={() => setSubLocked(false)}
             >
               <div className="sub-row">
