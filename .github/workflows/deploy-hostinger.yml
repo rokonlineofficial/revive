@@ -1,13 +1,18 @@
-name: Deploy to Hostinger
+name: Build for Hostinger
 
+# Builds the site and publishes the ready-to-serve files (dist/) to the
+# `hostinger-build` branch. Hostinger's Git deployment pulls from that branch.
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,12 +25,11 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Upload production files to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Publish built site to hostinger-build branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.HOSTINGER_FTP_SERVER }}
-          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
-          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ./public_html/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: hostinger-build
+          publish_dir: ./dist
+          force_orphan: true
+          commit_message: "Build from"
