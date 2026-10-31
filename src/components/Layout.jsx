@@ -25,9 +25,16 @@ export const menu = [
 function Header() {
   const [open, setOpen] = useState(false)
   const [subOpen, setSubOpen] = useState(false)
+  // After navigating, keep the desktop submenu closed until the mouse leaves the menu item
+  const [subLocked, setSubLocked] = useState(false)
   const { pathname } = useLocation()
 
-  useEffect(() => { setOpen(false); setSubOpen(false) }, [pathname])
+  useEffect(() => {
+    setOpen(false)
+    setSubOpen(false)
+    setSubLocked(true)
+    document.activeElement?.blur()
+  }, [pathname])
 
   return (
     <header className="site-header">
@@ -41,7 +48,11 @@ function Header() {
           }
           const sectionActive = pathname === item.to || item.children.some(([, to]) => to === pathname)
           return (
-            <div className={`has-sub ${subOpen ? 'sub-open' : ''}`} key={item.label}>
+            <div
+              className={`has-sub ${subOpen ? 'sub-open' : ''} ${subLocked ? 'sub-locked' : ''}`}
+              key={item.label}
+              onMouseLeave={() => setSubLocked(false)}
+            >
               <div className="sub-row">
                 <NavLink to={item.to} className={sectionActive ? 'active' : undefined}>{item.label}</NavLink>
                 <button
