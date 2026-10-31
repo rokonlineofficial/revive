@@ -492,7 +492,8 @@ h1, h2, h3, h4 { font-weight: 400; }
   transition: opacity .22s, transform .22s, visibility .22s;
 }
 .submenu::before { content: ''; position: absolute; left: 0; right: 0; top: -20px; height: 20px; }
-.has-sub:hover .submenu, .has-sub:focus-within .submenu { opacity: 1; visibility: visible; transform: none; }
+/* Show on hover; keyboard (Tab) focus also opens it, but a mouse click doesn't keep it stuck open */
+.has-sub:hover .submenu, .has-sub:has(:focus-visible) .submenu { opacity: 1; visibility: visible; transform: none; }
 .main-nav .submenu a { color: #2a2420; padding: 11px 14px; border-radius: 10px; font-size: 14px; }
 .main-nav .submenu a:hover { background: #f4efe7; opacity: 1; }
 .main-nav .submenu a.active { color: var(--brown-btn); background: #f4efe7; }
