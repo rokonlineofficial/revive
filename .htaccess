@@ -16,6 +16,9 @@ AddType image/svg+xml .svg
 RewriteEngine On
 RewriteBase /
 
+# Old cached pages ask for the source file; send a script that reloads the page fresh
+RewriteRule ^src/main\.jsx$ site/reload.js [L]
+
 # Real files inside /site (JS, CSS, images, favicon...)
 RewriteCond %{REQUEST_URI} !^/site/
 RewriteCond %{DOCUMENT_ROOT}/site%{REQUEST_URI} -f
