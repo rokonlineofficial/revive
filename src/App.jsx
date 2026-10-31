@@ -75,8 +75,7 @@ export default function App() {
     <>
       <header className="nav-shell">
         <a className="brand" href="#top" aria-label="Revive Skin Studio home">
-          <span className="brand-mark">R</span>
-          <span>REVIVE<br />SKIN STUDIO</span>
+          <img className="header-logo" src="/revive-logo.png" alt="Revive Skin Studio" />
         </a>
         <button
           className="menu-button"
@@ -309,6 +308,44 @@ export default function App() {
           </div>
         </section>
 
+        <section className="trust-section">
+          <div className="trust-content">
+            <div className="trust-heading">
+              <p className="eyebrow">Why choose us</p>
+              <h2>Why Trust Revive Skin<br />Studio</h2>
+            </div>
+            <div className="trust-grid">
+              <article className="trust-card">
+                <span className="trust-check">✓</span>
+                <h3>Personalized<br />Treatment Plans</h3>
+                <p>Every visit is personalized. We design treatment plans tailored to your skin goals and concerns.</p>
+              </article>
+              <article className="trust-card">
+                <span className="trust-check">✓</span>
+                <h3>15+ Years of<br />Experience</h3>
+                <p>Extensive background in medical aesthetics and advanced skin care treatments.</p>
+              </article>
+              <article className="trust-card">
+                <span className="trust-check">✓</span>
+                <h3>Professional<br />Clinical Treatment</h3>
+                <p>Modern, safe, FDA-cleared technology and the safest standards for skin care.</p>
+              </article>
+              <article className="trust-card">
+                <span className="trust-check">✓</span>
+                <h3>Results-Focused<br />Care</h3>
+                <p>We combine long-term skin health and visible, natural-looking results you can trust.</p>
+              </article>
+            </div>
+            <p className="trust-summary">At Revive Skin Studio, we combine medical-grade technology with expertise to create safe, effective, and natural-looking treatment plans. Our FDA-cleared methods deliver real progress without pressure, so your confidence can stay natural.</p>
+            <a className="trust-button" href="#contact">Book Now <Arrow /></a>
+          </div>
+          <div
+            className="trust-image"
+            role="img"
+            aria-label="Client receiving a personalized facial treatment"
+          />
+        </section>
+
         <section className="newsletter" id="contact">
           <div>
             <p className="eyebrow">Stay in the glow</p>
@@ -323,7 +360,7 @@ export default function App() {
       </main>
 
       <footer>
-        <a className="brand footer-brand" href="#top"><span className="brand-mark">R</span><span>REVIVE<br />SKIN STUDIO</span></a>
+        <a className="brand footer-brand" href="#top"><img className="footer-logo" src="/revive-logo.png" alt="Revive Skin Studio" /></a>
         <p>Thoughtful skin care for your natural glow.</p>
         <div><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Instagram</a></div>
         <span>© 2026 Revive Skin Studio</span>
