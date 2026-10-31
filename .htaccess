@@ -5,6 +5,14 @@ AddType application/javascript .js .mjs
 AddType text/css .css
 AddType image/svg+xml .svg
 
+# Never let browsers keep an old copy of the page
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header unset Expires
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
 RewriteEngine On
 RewriteBase /
 

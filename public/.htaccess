@@ -10,6 +10,12 @@ AddType image/svg+xml .svg
   <FilesMatch "\.(css)$">
     Header set Content-Type "text/css; charset=utf-8"
   </FilesMatch>
+  # Always re-check the page itself so visitors get the latest version.
+  # (Files in /assets have unique names per build, so they can stay cached.)
+  <FilesMatch "\.html$">
+    Header unset Expires
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 RewriteEngine On
